@@ -1,0 +1,57 @@
+/* https://colorhunt.co/palette/f9c0abf4e0afa8cd89355f2e
+brown: #533d3e */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "DynaPuff", system-ui;
+    color: #533d3e;
+    background-image: url('../Style/Pictures/bg1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.header{
+    margin-top: 1%;
+    text-align: center;
+}
+#memory-grid {
+    width: 75vh;
+    height: 75vh;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+.gridcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    width: 100vw;
+}
+.cell {
+    background-color: #A8CD89;
+    border: 2px solid #355F2E;
+}
+.cell:hover{
+    background-color: #F9C0AB;
+}
+.scoreboard {
+    text-align: left;
+    margin-left: 5%;
+}
+.start-button {
+    font-size: 25px;
+    background-color: #F9C0AB;
+    border: 2px solid #533d3e;
+    color: #533d3e;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "DynaPuff", system-ui;
+}
+select{
+    background-color: #F9C0AB;
+    font-family: "DynaPuff", system-ui;
+    color: #533d3e;
+    cursor: pointer;
+}
+.start-button:hover {
+    background-color: #A8CD89;
+}
