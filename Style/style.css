@@ -1,5 +1,7 @@
 /* https://colorhunt.co/palette/f9c0abf4e0afa8cd89355f2e
 brown: #533d3e */
+
+/* general styling*/
 body {
     margin: 0;
     padding: 0;
@@ -9,42 +11,39 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
 .header{
     margin-top: 1%;
     text-align: center;
 }
 #memory-grid {
-    width: 75vh;
-    height: 75vh;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
 }
 .gridcontainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75vh;
-    width: 100vw;
-}
+    }
 .cell {
     background-color: #A8CD89;
     border: 2px solid #355F2E;
 }
 .cell:hover{
     background-color: #F9C0AB;
+    cursor: pointer;
 }
 .scoreboard {
     text-align: left;
-    margin-left: 5%;
 }
 .start-button {
-    font-size: 25px;
     background-color: #F9C0AB;
     border: 2px solid #533d3e;
     color: #533d3e;
     border-radius: 5px;
     cursor: pointer;
     font-family: "DynaPuff", system-ui;
+    margin-bottom: 5%;
 }
 select{
     background-color: #F9C0AB;
@@ -56,30 +55,91 @@ select{
     background-color: #A8CD89;
 }
 
+/* styling for phones */
 @media only screen and (max-width: 600px) {
-    .body{
-        font-size: 2 rem;
+    body{
+        font-size: 1.5rem;
     }
     #memory-grid {
         width: 80vw;
         height: 80vw;
     }
     .start-button {
-        font-size: 1 rem;
+        font-size: 1.75rem;
         padding: 8px 16px;
     }
 
     select {
-        font-size: 2 rem;
+        font-size: 1.5rem;
     }
     .gridcontainer {
         flex-direction: column; 
-        align-items: center;    
-        
+        align-items: center;
+         
     }
 
     .scoreboard {
         margin-left: 0;
+        text-align: center;
+    }
+}
+
+/* styling for tablets */
+@media only screen and (min-width: 601px) {
+    body {
+        font-size: 2rem;
+    }
+
+    #memory-grid {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .start-button {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+    }
+
+    select {
+        font-size: 1.25rem;
+    }
+
+    .gridcontainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .scoreboard {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+/* styling for laptops */
+@media only screen and (min-width: 1200px){
+    body{
+        font-size: 1em;
+    }
+    #memory-grid {
+        width: 75vh;
+        height: 75vh;
+    }
+    .start-button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    select {
+        font-size: 1rem;
+    }
+    .gridcontainer {
+        flex-direction: row; 
+        align-items: center; 
+    }
+    .scoreboard {
+        margin-left: 5%;
         text-align: center;
     }
 }
