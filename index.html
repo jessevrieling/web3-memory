@@ -17,22 +17,15 @@
     </div>
         <div class="gridcontainer">
         <div id="memory-grid">
-            <div class="cell">1</div>
-            <div class="cell">2</div>
-            <div class="cell">3</div>
-            <div class="cell">4</div>
-            <div class="cell">5</div>
-            <div class="cell">6</div>
-            <div class="cell">7</div>
-            <div class="cell">8</div>
-            <div class="cell">9</div>
-            <div class="cell">10</div>
-            <div class="cell">11</div>
-            <div class="cell">12</div>
-            <div class="cell">13</div>
-            <div class="cell">14</div>
-            <div class="cell">15</div>
-            <div class="cell">16</div>
+            <script>
+                let grid = '';
+
+                for(let i = 1; i <= 16; i++) {
+                    grid += `<div class="cell" id="cell${i}">${i}</div>`
+                }
+
+                document.getElementById("memory-grid").innerHTML = grid
+            </script>
         </div>
         <div class="scoreboard">
             <h1>Scoreboard</h2>
@@ -51,6 +44,7 @@
                   </select></p><br>
                   <button class="start-button">Start new game!</button>
         </div>  
-    </div> 
+    </div>
+    <script src="test.js"></script> 
     </body>
 </html>
