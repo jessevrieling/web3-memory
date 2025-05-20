@@ -17,53 +17,26 @@
     </div>
         <div class="gridcontainer">
         <div class="memory-grid" id="memory-grid">
-            <script>
-                let grid = '';
-                for(let i = 1; i <= 16; i++) {
-                    grid += `<div class="card" id="card${i}">
-                             <div class="front-face">${i}</div>
-                                <div class="back-face">
-                                    <img src="Style/Pictures/assests/pair${i}.jpg" alt="pair${i}" />
-                                </div>
-                            </div>`
-
-                }
-                document.getElementById("memory-grid").innerHTML = grid
-            </script>
 
         </div>
-        <!-- <div id="memory-grid-back">
-            <script>
-                let gridb = '';
-                for(let i = 1; i <= 16; i++) {
-                    gridb += `<div class="backcard"><img src="Style/Pictures/assests/pair${i}.jpg" alt="pair${i}"/></div>`;
-
-                }
-                document.getElementById("memory-grid-back").innerHTML = gridb
-            </script>
-        </div> -->
-        <div class="scoreboard">
-            <h1>Scoreboard</h2>
-            <ul>Speler 1: 10 punten</ul>
-            <ul>Speler 2: 8 punten</ul>
-            <p>Character op kaart:
-            <select id="character" name="character">
-                <option value="*">*</option>
-                <option value="#">#</option>
-              </select></p>
-
-            <script>
-                var selected = document.getElementById("character").value;
-            </script>
-            <p>Afmeting bord:
-                <select id="size" name="size">
-                    <option value="4">4</option>
-                    <option value="6">6</option>
-                    <option value="8">8</option>
-                  </select></p><br>
-                  <button class="start-button" onclick="restart()">Start new game!</button>
-        </div>  
-    </div>
-    <script src="index.js"></script> 
+            <div class="scoreboard">
+                <h1>Scoreboard</h2>
+                <ul>Speler 1: 10 punten</ul>
+                <ul>Speler 2: 8 punten</ul>
+                <p>Character op kaart:
+                <select id="character" name="character">
+                    <option value="*">*</option>
+                    <option value="#">#</option>
+                </select></p>
+                <p>Afmeting bord:
+                    <select id="size" name="size">
+                        <option value="4">4</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                    </select></p><br>
+                    <button class="start-button">Start new game!</button>
+            </div>  
+        </div> 
     </body>
+    <script src="index.js"></script>
 </html>
