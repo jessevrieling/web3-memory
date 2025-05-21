@@ -45,7 +45,7 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 2em;
-    /* backface-visibility: hidden; */
+    backface-visibility: hidden;
 }
 .back-face{
     background-color: #A8CD89;
