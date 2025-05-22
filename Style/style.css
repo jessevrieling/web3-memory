@@ -64,8 +64,8 @@ body {
     height: 100%;
     object-fit: cover;
 }
-.front-face:hover{
-    background-color: #F9C0AB;
+.back-face:hover{
+    background-color: #355F2E;
     cursor: pointer;
 }
 
@@ -75,6 +75,34 @@ body {
 .voorkeur{
     text-align: left;
 }
+.legend {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 5px; 
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.legend-color {
+    flex: 1;
+    height: 30px;
+    max-width: 100px;
+    margin-left: 5px;
+    size:5px;
+    align-items: right;
+}
+
+.kaartkleur  { background-color: #A8CD89; }
+.open        { background-color: #355F2E; }
+.gevonden    { background-color: #533d3e; }
+
+
 .start-button {
     background-color: #F9C0AB;
     border: 2px solid #533d3e;
