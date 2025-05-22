@@ -16,6 +16,11 @@ body {
     margin-top: 1%;
     text-align: center;
 }
+#countdown{
+    color: #355F2E;
+    border: #533d3e;
+    width: 20%;
+}
 #memory-grid,
 #memory-grid-back{
     display: grid;
