@@ -72,6 +72,9 @@ body {
 .scoreboard {
     text-align: left;
 }
+.voorkeur{
+    text-align: left;
+}
 .start-button {
     background-color: #F9C0AB;
     border: 2px solid #533d3e;
