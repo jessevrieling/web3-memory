@@ -69,10 +69,7 @@ body {
     cursor: pointer;
 }
 
-.scoreboard {
-    text-align: left;
-}
-.voorkeur{
+.scoreboard, .scoreboard h1, .voorkeur {
     text-align: left;
 }
 .legend {
@@ -191,7 +188,7 @@ select{
 /* styling for laptops */
 @media only screen and (min-width: 1200px){
     body{
-        font-size: 1em;
+        font-size: 0.75em;
     }
     #memory-grid,
     #memory-grid-back{
