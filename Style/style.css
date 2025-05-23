@@ -7,14 +7,16 @@ body {
     padding: 0;
     font-family: "DynaPuff", system-ui;
     color: #533d3e;
-    background-image: url('../Style/Pictures/bg1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #a1e9d6;
 }
 
 .header{
     margin-top: 1%;
     text-align: center;
+}
+#countdown{
+    color: #355F2E;
+    border: #533d3e;
 }
 #memory-grid,
 #memory-grid-back{
@@ -59,14 +61,41 @@ body {
     height: 100%;
     object-fit: cover;
 }
-.front-face:hover{
-    background-color: #F9C0AB;
+.back-face:hover{
+    background-color: #355F2E;
     cursor: pointer;
 }
 
-.scoreboard {
+.scoreboard, .scoreboard h1, .voorkeur {
     text-align: left;
 }
+.legend {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    gap: 5px; 
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.legend-color {
+    flex: 1;
+    height: 30px;
+    margin-left: 5px;
+    size:5px;
+    align-items: right;
+}
+
+.kaartkleur  { background-color: #A8CD89; }
+.open        { background-color: #355F2E; }
+.gevonden    { background-color: #533d3e; }
+
+
 .start-button {
     background-color: #F9C0AB;
     border: 2px solid #533d3e;
@@ -91,30 +120,35 @@ select{
 /* styling for phones */
 @media only screen and (max-width: 600px) {
     body{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     #memory-grid,
     #memory-grid-back {
+        margin-top: 5vw;
         width: 80vw;
         height: 80vw;
     }
+    #countdown{
+    width: 50%;
+    }
     .start-button {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         padding: 8px 16px;
     }
 
     select {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     .gridcontainer {
         flex-direction: column; 
         align-items: center;
-         
     }
 
     .scoreboard {
-        margin-left: 0;
         text-align: center;
+    }
+    .legend-color{
+        max-width: 75px;
     }
 }
 
@@ -155,7 +189,7 @@ select{
 /* styling for laptops */
 @media only screen and (min-width: 1200px){
     body{
-        font-size: 1em;
+        font-size: 0.75em;
     }
     #memory-grid,
     #memory-grid-back{
@@ -177,5 +211,11 @@ select{
     .scoreboard {
         margin-left: 5%;
         text-align: center;
+    }
+    .legend-color{
+        max-width: 100px;
+    }
+    #countdown{
+    width: 20%;
     }
 }

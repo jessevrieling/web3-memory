@@ -13,28 +13,48 @@
         <div class="header">
         <h1>Memery game</h1>
         <p>Verlopen tijd: 64 seconden</p>
-        <p>Gevonden kaart-paren = 1</p><br>
-    </div>
+        <p>Gevonden kaart-paren = 1</p>
+        <p>Resterende tijd:</p>
+        <progress id="countdown" value="32" max="100"></progress><br>
+        </div>
         <div class="gridcontainer">
         <div class="memory-grid" id="memory-grid">
-
         </div>
             <div class="scoreboard">
-                <h1>Scoreboard</h2>
-                <ul>Speler 1: 10 punten</ul>
-                <ul>Speler 2: 8 punten</ul>
-                <p>Character op kaart:
+                <h1>Top vijf</h1>
+                <ul>1. player1: 10 punten</ul>
+                <ul>2. player2: 8 punten</ul>
+                <ul>3. player1: 10 punten</ul>
+                <ul>4. player2: 8 punten</ul>
+                <ul>5. player1: 10 punten</ul><br>
+                <div class="voorkeur">
+                    <p>Character op kaart:
                 <select id="character" name="character">
                     <option value="*">*</option>
                     <option value="#">#</option>
                 </select></p>
-                <p>Afmeting bord:
-                    <select id="size" name="size">
-                        <option value="4">4</option>
-                        <option value="6">6</option>
-                        <option value="8">8</option>
-                    </select></p><br>
-                    <button class="start-button">Start new game!</button>
+                    <p>Afmeting bord:
+                        <select id="size" name="size">
+                            <option value="4">4</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                        </select></p><br>
+                </div>
+                <div class="legend">
+                    <div class="legend-item">
+                        <p>Kaartkleur:</p>
+                        <div class="legend-color kaartkleur"></div>
+                    </div>
+                    <div class="legend-item">
+                        <p>Open:</p>
+                        <div class="legend-color open"></div>
+                    </div>
+                    <div class="legend-item">
+                        <p>Gevonden:</p>
+                        <div class="legend-color gevonden"></div>
+                    </div>
+                </div>
+                <br><button class="start-button">Start new game!</button>
             </div>  
         </div> 
     </body>
