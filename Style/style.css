@@ -7,9 +7,7 @@ body {
     padding: 0;
     font-family: "DynaPuff", system-ui;
     color: #533d3e;
-    background-image: url('../Style/Pictures/bg1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #a1e9d6;
 }
 
 .header{
@@ -19,7 +17,6 @@ body {
 #countdown{
     color: #355F2E;
     border: #533d3e;
-    width: 20%;
 }
 #memory-grid,
 #memory-grid-back{
@@ -89,7 +86,6 @@ body {
 .legend-color {
     flex: 1;
     height: 30px;
-    max-width: 100px;
     margin-left: 5px;
     size:5px;
     align-items: right;
@@ -124,30 +120,35 @@ select{
 /* styling for phones */
 @media only screen and (max-width: 600px) {
     body{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     #memory-grid,
     #memory-grid-back {
+        margin-top: 5vw;
         width: 80vw;
         height: 80vw;
     }
+    #countdown{
+    width: 50%;
+    }
     .start-button {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         padding: 8px 16px;
     }
 
     select {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
     .gridcontainer {
         flex-direction: column; 
         align-items: center;
-         
     }
 
     .scoreboard {
-        margin-left: 0;
         text-align: center;
+    }
+    .legend-color{
+        max-width: 75px;
     }
 }
 
@@ -210,5 +211,11 @@ select{
     .scoreboard {
         margin-left: 5%;
         text-align: center;
+    }
+    .legend-color{
+        max-width: 100px;
+    }
+    #countdown{
+    width: 20%;
     }
 }
