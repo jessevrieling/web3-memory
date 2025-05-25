@@ -11,6 +11,7 @@ let grid = '';
     document.getElementById("memory-grid").innerHTML = grid;
 
 
+// Timer for the game
 let totalTime = 100;
 let remainingTime = totalTime;
 let elapsedTime = 0;
