@@ -1,11 +1,13 @@
 // crates grid
 function renderCards(){
-let gridSize = 16;
+let gridSize = document.getElementById("size").value;
+let character = document.getElementById("character").value
 let grid = '';
     for (let i = 0; i < gridSize; i++) {
+        let backFaceContent = (character === "count") ? i : character;
         grid += `
             <div class="card" id="card${i}">
-                <div class="back-face">${i}</div>
+                <div class="back-face">${backFaceContent}</div>
                 <div class="front-face">${i}</div>
             </div>`;
     }
