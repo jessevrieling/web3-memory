@@ -1,5 +1,8 @@
 // crates grid
 function renderCards(){
+const totalCards = parseInt(document.getElementById("size").value, 10);
+const gridContainer = document.getElementById("memory-grid");
+const gridLayout = Math.sqrt(totalCards);
 let gridSize = document.getElementById("size").value;
 let character = document.getElementById("character").value
 document.getElementById("character").addEventListener("change", renderCards);
@@ -35,6 +38,9 @@ let grid = '';
     }
 
     document.getElementById("memory-grid").innerHTML = grid;
+    gridContainer.style.display = "grid";
+    gridContainer.style.gridTemplateColumns = `repeat(${gridLayout}, 1fr)`;
+
     attachFlipListeners();
 }
 renderCards();

@@ -21,9 +21,10 @@ body {
 #memory-grid,
 #memory-grid-back{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); 
     perspective: 1000px;
 }
+
 .gridcontainer {
     display: flex;
     justify-content: center;
@@ -191,7 +192,7 @@ select{
     body{
         font-size: 0.75em;
     }
-    #memory-grid,
+    #memoryGrid,
     #memory-grid-back{
         width: 75vh;
         height: 75vh;
