@@ -1,3 +1,5 @@
+// crates grid
+function renderCards(){
 let gridSize = 16;
 let grid = '';
     for (let i = 0; i < gridSize; i++) {
@@ -9,7 +11,8 @@ let grid = '';
     }
 
     document.getElementById("memory-grid").innerHTML = grid;
-
+}
+renderCards();
 
 // Timer for the game
 let totalTime = 100;
@@ -47,3 +50,16 @@ memoryGrid.addEventListener("click", () => {
         timerStarted = true;
     }
 });
+
+//Restart game
+const restartButton = document.getElementById("restart");
+restartButton.addEventListener("click", () =>{
+    clearInterval(countdownInterval);
+    remainingTime = totalTime;
+    elapsedTime = 0;
+    timerStarted = false;
+
+    countdownBar.value = totalTime;
+
+    renderCards();
+})
