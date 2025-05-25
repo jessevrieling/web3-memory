@@ -37,7 +37,7 @@ let grid = '';
             </div>`;
     }
 
-    document.getElementById("memory-grid").innerHTML = grid;
+    gridContainer.innerHTML = grid;
     gridContainer.style.display = "grid";
     gridContainer.style.gridTemplateColumns = `repeat(${gridLayout}, 1fr)`;
 
