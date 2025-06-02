@@ -1,7 +1,8 @@
 import fetchImages from "./imageFetcher.js";
 
+let cardMap = {};
+
 export default async function renderCards() {
-  let cardMap = {};
 	const gridSize = document.getElementById("size").value;
 	const character = document.getElementById("character").value;
 	const gridContainer = document.getElementById("memory-grid")
