@@ -50,21 +50,6 @@ function attachFlipListeners() {
     })
 }
 
-function getUniqueRandomNumbers(count, min, max) {
-	if (max - min + 1 < count) {
-		throw new Error("Range to small for amount of numbers");
-	}
-
-	const numbers = new Set();
-
-	while (numbers.size < count) {
-		const rand = Math.floor(Math.random() * (max - min + 1)) + min;
-		numbers.add(rand);
-	}
-
-	return Array.from(numbers);
-}
-
 const cards = document.querySelectorAll('.card');
 let hasFlippedCard = false;
 let firstCard, secondCard;
