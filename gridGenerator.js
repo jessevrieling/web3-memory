@@ -1,4 +1,6 @@
-export default function renderCards() {
+import fetchImages from "./imageFetcher.js";
+
+export default async function renderCards() {
 	const gridSize = document.getElementById("size").value;
 	const character = document.getElementById("character").value;
 	const gridContainer = document.getElementById("memory-grid")
@@ -6,14 +8,9 @@ export default function renderCards() {
 	
 	let grid = '';
     const uniqueCount = gridSize / 2;
-    const uniqueSeeds = getUniqueRandomNumbers(uniqueCount, 1, 9999);
+    const images = await fetchImages(uniqueCount);
 
-    const imagePairs = uniqueSeeds.flatMap(seed => {
-        const url = `https://picsum.photos/seed/${seed}/200`;
-        return [url, url];
-    });
-
-    const shuffledImages = shuffleArray(imagePairs);
+    const shuffledImages = shuffleArray([...images, ...images]);
 
     for (let i = 0; i < gridSize; i++) {
         const backFaceContent = (character === "count") ? i : character;
@@ -22,7 +19,7 @@ export default function renderCards() {
             <div class="card" id="card${i}">
                 <div class="back-face">${backFaceContent}</div>
                 <div class="front-face">
-                    <img src="${shuffledImages[i]}" id="pair${i}" />
+                    <img src="${shuffledImages[i]}" id="pair${i}"  alt=""/>
                 </div>
             </div>`;
     }
@@ -53,22 +50,6 @@ function attachFlipListeners() {
     })
 }
 
-function getUniqueRandomNumbers(count, min, max) {
-	if (max - min + 1 < count) {
-		throw new Error("Range to small for amount of numbers");
-	}
-
-	const numbers = new Set();
-
-	while (numbers.size < count) {
-		const rand = Math.floor(Math.random() * (max - min + 1)) + min;
-		numbers.add(rand);
-	}
-
-	return Array.from(numbers);
-}
-
-const cards = document.querySelectorAll('.card');
 let hasFlippedCard = false;
 let firstCard, secondCard;
 
