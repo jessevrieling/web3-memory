@@ -1,6 +1,7 @@
 import fetchImages from "./imageFetcher.js";
 
 export default async function renderCards() {
+  let cardMap = {};
 	const gridSize = document.getElementById("size").value;
 	const character = document.getElementById("character").value;
 	const gridContainer = document.getElementById("memory-grid")
@@ -9,19 +10,20 @@ export default async function renderCards() {
 	let grid = '';
     const uniqueCount = gridSize / 2;
     const images = await fetchImages(uniqueCount);
-
     const shuffledImages = shuffleArray([...images, ...images]);
 
     for (let i = 0; i < gridSize; i++) {
+        const { url, pairId } = shuffledImages[i];
         const backFaceContent = (character === "count") ? i : character;
 
         grid += `
-            <div class="card" id="card${i}">
+            <div class="card" id="card${i}" data-cardid="${i}">
                 <div class="back-face">${backFaceContent}</div>
                 <div class="front-face">
-                    <img src="${shuffledImages[i]}" id="pair${i}"  alt=""/>
+                    <img src="${url}" id="pair${i}" />
                 </div>
             </div>`;
+        cardMap[i] = pairId;
     }
 
     gridContainer.innerHTML = grid;
@@ -52,15 +54,34 @@ function attachFlipListeners() {
 
 let hasFlippedCard = false;
 let firstCard, secondCard;
-
+let firstPairId, secondPairId;
 function flipCard(){
     this.classList.add('flip');
+    const cardId = this.dataset.cardid;
+    const pairId = cardMap[cardId];
 
     if(!hasFlippedCard){
         hasFlippedCard = true;
         firstCard = this;
+        firstPairId = pairId;
+
     } else {
         hasFlippedCard = false;
         secondCard = this;
+        secondPairId = pairId;
+
+
+        if(firstPairId === secondPairId){
+            
+            console.log('a match')
+            firstCard.removeEventListener('click', flipCard)
+            secondCard.removeEventListener('click', flipCard)
+        } else{
+            setTimeout(()=>{
+                firstCard.classList.remove('flip');
+                secondCard.classList.remove('flip');
+            }, 2000);
+        }
+           
     }
 }
