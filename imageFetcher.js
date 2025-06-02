@@ -7,7 +7,7 @@ export default async function fetchImages(imageCount) {
 		const blob = await response.blob()
 		const objectUrl = URL.createObjectURL(blob)
 
-		images.push(objectUrl)
+		images.push({ url: objectUrl, pairId: `pair-${i}` });
 	}
 
 	return images;
