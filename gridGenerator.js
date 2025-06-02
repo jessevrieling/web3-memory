@@ -8,21 +8,25 @@ export default function renderCards() {
     const uniqueCount = gridSize / 2;
     const uniqueSeeds = getUniqueRandomNumbers(uniqueCount, 1, 9999);
 
-    const imagePairs = uniqueSeeds.flatMap(seed => {
+    const imagePairs = uniqueSeeds.flatMap((seed, index) => {
         const url = `https://picsum.photos/seed/${seed}/200`;
-        return [url, url];
+        return [
+            { url, pairId: index },
+            { url, pairId: index }
+        ];
     });
 
     const shuffledImages = shuffleArray(imagePairs);
 
     for (let i = 0; i < gridSize; i++) {
+        const { url, pairId } = shuffledImages[i];
         const backFaceContent = (character === "count") ? i : character;
 
         grid += `
-            <div class="card" id="card${i}">
+            <div class="card" id="card${i}" data-pairid="${pairId}">
                 <div class="back-face">${backFaceContent}</div>
                 <div class="front-face">
-                    <img src="${shuffledImages[i]}" id="pair${i}" />
+                    <img src="${url}" id="pair${i}" />
                 </div>
             </div>`;
     }
@@ -78,8 +82,22 @@ function flipCard(){
     if(!hasFlippedCard){
         hasFlippedCard = true;
         firstCard = this;
+
     } else {
         hasFlippedCard = false;
         secondCard = this;
+
+        if(firstCard.dataset.pairid === secondCard.dataset.pairid){
+            
+            console.log('a match')
+            firstCard.removeEventListener('click', flipCard)
+            secondCard.removeEventListener('click', flipCard)
+        } else{
+            setTimeout(()=>{
+                firstCard.classList.remove('flip');
+                secondCard.classList.remove('flip');
+            }, 2000);
+        }
+           
     }
 }
