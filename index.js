@@ -51,3 +51,14 @@ restartButton.addEventListener("click", () =>{
 
     renderCards()
 })
+
+//Color change
+const colorInput = document.getElementById("color-input");
+
+colorInput.onchange = () => {
+    const backFaces = document.querySelectorAll(".back-face");
+
+    backFaces.forEach(el => {
+        el.style.backgroundColor = colorInput.value;
+    });
+};
