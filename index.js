@@ -14,6 +14,11 @@ const elapsedTimeDisplay = document.querySelector(".header p:nth-of-type(1)")
 const remainingTimeDisplay = document.querySelector(".header p:nth-of-type(3)")
 const memoryGrid = document.getElementById("memory-grid")
 
+export default function endGame() {
+    clearInterval(countdownInterval)
+    alert(`Je hebt gewonnen! tijd: ${elapsedTime} seconden`)
+}
+
 function startTimer() {
     countdownBar.max = totalTime
     countdownBar.value = remainingTime

@@ -1,6 +1,9 @@
 import fetchImages from "./imageFetcher.js";
+import endGame from "./index.js";
 
 let cardMap = {};
+let pairsFound = 0;
+let pairCount;
 
 export default async function renderCards() {
 	const gridSize = document.getElementById("size").value;
@@ -9,7 +12,8 @@ export default async function renderCards() {
 	const gridLayout = Math.sqrt(gridSize)
 	
 	let grid = '';
-    const uniqueCount = gridSize / 2;
+    let uniqueCount = gridSize / 2
+    pairCount = uniqueCount
     const images = await fetchImages(uniqueCount);
     const shuffledImages = shuffleArray([...images, ...images]);
 
@@ -78,7 +82,16 @@ function flipCard(){
 function checkForMatch(){
     let isMatch = firstPairId === secondPairId;
 
-    isMatch ? disableCards(): unflipCards()
+    if(isMatch === true) {
+        disableCards();
+        pairsFound++;
+
+        if(pairsFound === pairCount) {
+            endGame()
+        }
+    } else {
+        unflipCards();
+    }
 }
 
 function disableCards(){
