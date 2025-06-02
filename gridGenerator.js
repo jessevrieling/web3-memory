@@ -1,3 +1,4 @@
+    let cardMap = {};
 export default function renderCards() {
 	const gridSize = document.getElementById("size").value;
 	const character = document.getElementById("character").value;
@@ -23,12 +24,13 @@ export default function renderCards() {
         const backFaceContent = (character === "count") ? i : character;
 
         grid += `
-            <div class="card" id="card${i}" data-pairid="${pairId}">
+            <div class="card" id="card${i}" data-cardid="${i}">
                 <div class="back-face">${backFaceContent}</div>
                 <div class="front-face">
                     <img src="${url}" id="pair${i}" />
                 </div>
             </div>`;
+        cardMap[i] = pairId;
     }
 
     gridContainer.innerHTML = grid;
@@ -75,19 +77,24 @@ function getUniqueRandomNumbers(count, min, max) {
 const cards = document.querySelectorAll('.card');
 let hasFlippedCard = false;
 let firstCard, secondCard;
-
+let firstPairId, secondPairId;
 function flipCard(){
     this.classList.add('flip');
+    const cardId = this.dataset.cardid;
+    const pairId = cardMap[cardId];
 
     if(!hasFlippedCard){
         hasFlippedCard = true;
         firstCard = this;
+        firstPairId = pairId;
 
     } else {
         hasFlippedCard = false;
         secondCard = this;
+        secondPairId = pairId;
 
-        if(firstCard.dataset.pairid === secondCard.dataset.pairid){
+
+        if(firstPairId === secondPairId){
             
             console.log('a match')
             firstCard.removeEventListener('click', flipCard)
