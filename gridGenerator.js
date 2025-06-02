@@ -4,6 +4,7 @@ import endGame from "./index.js";
 let cardMap = {};
 let pairsFound = 0;
 let pairCount;
+const cardsFound = document.getElementById("cards-found")
 
 export default async function renderCards() {
 	const gridSize = document.getElementById("size").value;
@@ -85,6 +86,7 @@ function checkForMatch(){
     if(isMatch === true) {
         disableCards();
         pairsFound++;
+        cardsFound.innerHTML = `Paren gevonden: ${pairsFound}`;
 
         if(pairsFound === pairCount) {
             endGame()
