@@ -1,7 +1,8 @@
 import fetchImages from "./imageFetcher.js";
 
+let cardMap = {};
+
 export default async function renderCards() {
-  let cardMap = {};
 	const gridSize = document.getElementById("size").value;
 	const character = document.getElementById("character").value;
 	const gridContainer = document.getElementById("memory-grid")
@@ -55,6 +56,7 @@ function attachFlipListeners() {
 let hasFlippedCard = false;
 let firstCard, secondCard;
 let firstPairId, secondPairId;
+
 function flipCard(){
     this.classList.add('flip');
     const cardId = this.dataset.cardid;
@@ -69,19 +71,24 @@ function flipCard(){
         hasFlippedCard = false;
         secondCard = this;
         secondPairId = pairId;
-
-
-        if(firstPairId === secondPairId){
-            
-            console.log('a match')
-            firstCard.removeEventListener('click', flipCard)
-            secondCard.removeEventListener('click', flipCard)
-        } else{
-            setTimeout(()=>{
-                firstCard.classList.remove('flip');
-                secondCard.classList.remove('flip');
-            }, 2000);
-        }
-           
+        checkForMatch();
     }
 }
+
+function checkForMatch(){
+    let isMatch = firstPairId === secondPairId;
+
+    isMatch ? disableCards(): unflipCards()
+}
+
+function disableCards(){
+    firstCard.removeEventListener('click', flipCard)
+    secondCard.removeEventListener('click', flipCard)
+}
+function unflipCards(){
+    setTimeout(()=>{
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+    }, 1000);
+}
+
