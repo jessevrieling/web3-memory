@@ -33,6 +33,7 @@ function startTimer() {
         if (remainingTime <= 0) {
             clearInterval(countdownInterval)
             remainingTimeDisplay.textContent = "Tijd is om!"
+            alert(`Tijd is om`)
         }
     }, 1000)
 }
