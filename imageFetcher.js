@@ -11,17 +11,19 @@ export default async function fetchImages(imageCount) {
 
 		// images.push({ url: objectUrl, pairId: `pair-${i}` });
 		// if(){
-		const response = await fetchMemesFromJson(i)
+		const response = await fetchMemesFromJson()
+		console.log(response)
 		images.push({ url: response, pairId: `pair-${i}` });
 		// }
 		
  	}
 	return images;
 
- 	async function fetchMemesFromJson(index){
+ 	async function fetchMemesFromJson(){
 		return fetch('https://api.imgflip.com/get_memes')
 		.then(res => res.json())
 		.then(data => {
+			const index = Math.floor(Math.random() * (Math.min(data.data.memes.length - 1) + 1)) 
 			return data.data.memes[index].url
 			})
 
