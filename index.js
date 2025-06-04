@@ -68,3 +68,4 @@ colorInput.onchange = () => {
         el.style.backgroundColor = colorInput.value;
     });
 };
+
