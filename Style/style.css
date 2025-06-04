@@ -22,7 +22,7 @@ body {
 #memory-grid,
 #memory-grid-back{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); 
+    grid-template-columns: repeat(auto-fit, minmax(10px, 1fr)); 
     perspective: 1000px;
 }
 
@@ -74,8 +74,6 @@ body {
 .legend {
     display: flex;
     flex-direction: column;
-    width: 200px;
-    gap: 5px; 
 }
 
 .legend-item {
@@ -84,19 +82,6 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
-.legend-color {
-    flex: 1;
-    height: 30px;
-    margin-left: 5px;
-    size:5px;
-    align-items: right;
-}
-
-.kaartkleur  { background-color: #A8CD89; }
-.open        { background-color: #355F2E; }
-.gevonden    { background-color: #533d3e; }
-
 
 .start-button {
     background-color: #F9C0AB;
@@ -112,6 +97,8 @@ select{
     font-family: "DynaPuff", system-ui;
     color: #533d3e;
     cursor: pointer;
+    float: right;
+    margin-left: 1vw;
 }
 .start-button:hover {
     background-color: #A8CD89;
@@ -186,7 +173,7 @@ select{
 /* styling for phones */
 @media only screen and (max-width: 600px) {
     body{
-        font-size: 1.2rem;
+        font-size: 1rem;
         margin: 0;
         padding: 0;
         overflow-x: hidden;
@@ -204,10 +191,6 @@ select{
         font-size: 1.5rem;
         padding: 8px 16px;
     }
-
-    select {
-        font-size: 1rem;
-    }
     .gridcontainer {
         flex-direction: column; 
         align-items: center;
@@ -216,8 +199,9 @@ select{
     .scoreboard {
         text-align: center;
     }
-    .legend-color{
-        max-width: 75px;
+    .legend {
+    width: 20vh;
+    gap: 10vh; 
     }
 
     .loginform{
@@ -235,22 +219,18 @@ select{
 /* styling for tablets */
 @media only screen and (min-width: 601px) {
     body {
-        font-size: 2rem;
+        font-size: 1rem;
     }
 
     #memory-grid,
     #memory-grid-back {
-        width: 60vw;
-        height: 60vw;
+        width: 50vw;
+        height: 50vw;
     }
 
     .start-button {
         font-size: 1.5rem;
         padding: 10px 20px;
-    }
-
-    select {
-        font-size: 1.25rem;
     }
 
     .gridcontainer {
@@ -275,6 +255,10 @@ select{
     .loginform .container {
         max-width: 60vw;
     }
+    .legend {
+    width: 20vw;
+    gap: 10vw; 
+    }
 }
 
 /* styling for laptops */
@@ -282,7 +266,7 @@ select{
     body{
         font-size: 0.75em;
     }
-    #memoryGrid,
+    #memory-grid,
     #memory-grid-back{
         width: 75vh;
         height: 75vh;
@@ -290,10 +274,6 @@ select{
     .start-button {
         font-size: 1rem;
         padding: 8px 16px;
-    }
-
-    select {
-        font-size: 1rem;
     }
     .gridcontainer {
         flex-direction: row; 
@@ -303,8 +283,9 @@ select{
         margin-left: 5%;
         text-align: center;
     }
-    .legend-color{
-        max-width: 100px;
+    .legend {
+    width: 20vh;
+    gap: 10vh; 
     }
     #countdown{
     width: 20%;
