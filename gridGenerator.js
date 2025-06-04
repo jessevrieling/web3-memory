@@ -8,6 +8,7 @@ const cardsFound = document.getElementById("cards-found")
 
 export default async function renderCards() {
 	const gridSize = document.getElementById("size").value;
+    const theme = document.getElementById("theme").value;
 	const character = document.getElementById("character").value;
 	const gridContainer = document.getElementById("memory-grid")
 	const gridLayout = Math.sqrt(gridSize)
@@ -38,6 +39,8 @@ export default async function renderCards() {
 
     document.getElementById("character").addEventListener("change", renderCards);
     document.getElementById("size").addEventListener("change", renderCards);
+    document.getElementById("theme").addEventListener("change", renderCards);
+
     attachFlipListeners();
 }
 
