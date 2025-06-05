@@ -1,5 +1,6 @@
 import fetchImages from "./imageFetcher.js";
-import endGame from "./index.js";
+import {endGame, restartTimer, handleChangeEvent} from "./index.js";
+// import startTimer from "./index.js";
 
 let cardMap = {};
 let pairsFound = 0;
@@ -12,6 +13,12 @@ export default async function renderCards() {
 	const character = document.getElementById("character").value;
 	const gridContainer = document.getElementById("memory-grid")
 	const gridLayout = Math.sqrt(gridSize)
+
+    // const loader = document.getElementById("loader");
+    // loader.style.display = "block";
+    const overlay = document.getElementById("loading-overlay");
+    overlay.style.display = "flex"; // block input
+
 	
 	let grid = '';
     let uniqueCount = gridSize / 2
@@ -37,9 +44,25 @@ export default async function renderCards() {
     gridContainer.style.display = "grid";
     gridContainer.style.gridTemplateColumns = `repeat(${gridLayout}, 1fr)`;
 
-    document.getElementById("character").addEventListener("change", renderCards);
-    document.getElementById("size").addEventListener("change", renderCards);
-    document.getElementById("theme").addEventListener("change", renderCards);
+    // setTimeout(() => {
+    //     loader.style.display = "none";
+    // }, 30);
+
+    overlay.style.display = "none";
+
+    document.getElementById("character").addEventListener("change", () =>{
+        renderCards();
+        restartTimer();
+    });
+    document.getElementById("size").addEventListener("change", () =>{
+        renderCards();
+        restartTimer();
+    });
+
+    document.getElementById("theme").addEventListener("change", () =>{
+        renderCards();
+        restartTimer();
+    });
 
     attachFlipListeners();
 }
