@@ -14,12 +14,12 @@ const elapsedTimeDisplay = document.querySelector(".header p:nth-of-type(1)")
 const remainingTimeDisplay = document.querySelector(".header p:nth-of-type(3)")
 const memoryGrid = document.getElementById("memory-grid")
 
-export default function endGame() {
+export function endGame() {
     clearInterval(countdownInterval)
     alert(`Je hebt gewonnen! tijd: ${elapsedTime} seconden`)
 }
 
-function startTimer() {
+export function startTimer() {
     countdownBar.max = totalTime
     countdownBar.value = remainingTime
 
@@ -30,12 +30,48 @@ function startTimer() {
         countdownBar.value = remainingTime
         elapsedTimeDisplay.textContent = `Verlopen tijd: ${elapsedTime} seconden`
 
+        document.getElementById("theme").disabled = true;
+        document.getElementById("character").disabled = true;
+        document.getElementById("size").disabled = true;
+
         if (remainingTime <= 0) {
             clearInterval(countdownInterval)
             remainingTimeDisplay.textContent = "Tijd is om!"
             alert(`Tijd is om`)
+
+            renderCards();
+            startTimer();
         }
     }, 1000)
+}
+
+export function restartTimer(){
+    clearInterval(countdownInterval);
+    remainingTime = totalTime;
+    elapsedTime = 0;
+    timerStarted = false;
+
+    countdownBar.value = totalTime;
+    elapsedTimeDisplay.textContent = `Verlopen tijd: 0 seconden`;
+    remainingTimeDisplay.textContent = `Resterende tijd: ${totalTime} seconden`;
+
+   
+    document.getElementById("theme").disabled = false;
+    document.getElementById("size").disabled = false;
+    document.getElementById("character").disabled = false;
+
+    renderCards();
+}
+
+
+export function handleChangeEvent() {
+  document.getElementById("loader").style.display = "block";
+
+  setTimeout(() => {
+    renderCards();
+    restartTimer();
+    document.getElementById("loader").style.display = "none";
+  }, 10000);
 }
 
 memoryGrid.addEventListener("click", () => {
@@ -46,17 +82,19 @@ memoryGrid.addEventListener("click", () => {
 });
 
 //Restart game
-const restartButton = document.getElementById("restart")
-restartButton.addEventListener("click", () =>{
-    clearInterval(countdownInterval)
-    remainingTime = totalTime
-    elapsedTime = 0
-    timerStarted = false
+    const restartButton = document.getElementById("restart")
+    restartButton.addEventListener("click", () =>{
+        clearInterval(countdownInterval)
+        remainingTime = totalTime
+        elapsedTime = 0
+        timerStarted = false
 
-    countdownBar.value = totalTime
+        countdownBar.value = totalTime
 
-    renderCards()
+        renderCards()
+        restartTimer()
 })
+
 
 //Color change
 const colorInput = document.getElementById("color-input");
