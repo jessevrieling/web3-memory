@@ -1,5 +1,5 @@
 import fetchImages from "./imageFetcher.js";
-import {endGame, restartTimer, handleChangeEvent} from "./index.js";
+import {endGame, restartTimer, handleChangeEvent, fetchScoreboard} from "./index.js";
 // import startTimer from "./index.js";
 
 let cardMap = {};
@@ -63,7 +63,7 @@ export default async function renderCards() {
         renderCards();
         restartTimer();
     });
-
+    fetchScoreboard();
     attachFlipListeners();
 }
 

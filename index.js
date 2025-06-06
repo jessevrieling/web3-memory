@@ -107,3 +107,25 @@ colorInput.onchange = () => {
     });
 };
 
+export async function fetchScoreboard() {
+  try {
+    const response = await fetch('http://localhost:8000/memory/top-scores');
+    const scores = await response.json();
+
+    const scoreList = document.getElementsByClassName('scores')[0];
+    scoreList.innerHTML = '';
+
+    scores.forEach((entry, index) => {
+    const ul = document.createElement('ul');
+    ul.textContent = `${index + 1}. ${entry.username} - ${entry.score}`;
+    scoreList.appendChild(ul);
+    });
+
+  } catch (error) {
+    console.error('Error fetching scoreboard:', error);
+  }
+}
+
+
+
+
