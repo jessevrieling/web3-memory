@@ -3,13 +3,12 @@ document.getElementById("login-form").addEventListener("submit", async function(
 
     const username = document.getElementById("username-input").value
     const password = document.getElementById("password-input").value
-    console.log("test")
 
     await sendCredentials(username, password)
 })
 
 async function sendCredentials(username, password) {
-    fetch("localhost:8000/memory/register", {
+    fetch("http://localhost:8000/memory/register", {
         method: "post",
 
         body: JSON.stringify({
