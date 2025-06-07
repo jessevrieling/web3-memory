@@ -1,9 +1,13 @@
+const overlay = document.getElementById("loading-overlay");
+
 document.getElementById("login-form").addEventListener("submit", async function(e) {
     e.preventDefault();
 
     if(!e.target.reportValidity()) {
         return;
     }
+
+    overlay.style.display = "flex"; // block input
 
     const username = document.getElementById("username-input").value
     const email = document.getElementById("email-input").value;
@@ -21,5 +25,8 @@ async function sendCredentials(username, email, password) {
             email: email,
             password: password
         })
-    }).then(response => console.log(response))
+    }).then(response => {
+        console.log(response)
+        overlay.style.display = "none";
+    })
 }
