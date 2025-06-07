@@ -68,7 +68,7 @@ body {
     cursor: pointer;
 }
 
-.scoreboard, .scoreboard h1, .voorkeur {
+.scoreboard, .scoreboard h1, .voorkeur, .scores {
     text-align: left;
 }
 .legend {
