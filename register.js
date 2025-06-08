@@ -26,7 +26,6 @@ async function sendCredentials(username, email, password) {
             password: password
         })
     }).then(response => {
-        console.log(response)
         overlay.style.display = "none";
 
         messageText.innerHTML = "Account aangemaakt!"
