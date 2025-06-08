@@ -1,6 +1,6 @@
 const overlay = document.getElementById("loading-overlay");
 
-document.getElementById("login-form").addEventListener("submit", async function(e) {
+document.getElementById("register-form").addEventListener("submit", async function(e) {
     e.preventDefault();
 
     overlay.style.display = "flex"; // block input
