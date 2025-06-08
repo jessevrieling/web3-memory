@@ -23,12 +23,16 @@ async function sendCredentials(username, password) {
             username: username,
             password: password
         })
-    }).then(response => {
+    }).then(async response => {
         console.log(response)
         overlay.style.display = "none";
 
         if(response.ok) {
-            messageText.innerHTML = "Ingelogd yippeee"
+            await response.json().then(data => {
+                localStorage.setItem("MEMORY_TOKEN", data.token)
+            });
+
+            window.location.replace("/");
         } else {
             messageText.innerHTML = "Onjuiste gebruikersnaam of wachtwoord"
         }
