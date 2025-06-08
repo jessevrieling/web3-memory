@@ -14,7 +14,7 @@ document.getElementById("login-form").addEventListener("submit", async function(
 async function sendCredentials(username, password) {
     let messageText = document.getElementById("register-message");
 
-    fetch("http://localhost:8000/memory/register", {
+    fetch("http://localhost:8000/memory/login", {
         method: "post",
 
         body: JSON.stringify({
