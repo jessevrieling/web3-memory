@@ -12,11 +12,13 @@ document.getElementById("login-form").addEventListener("submit", async function(
 })
 
 async function sendCredentials(username, password) {
-    let messageText = document.getElementById("register-message");
+    let messageText = document.getElementById("error-message");
 
     fetch("http://localhost:8000/memory/login", {
         method: "post",
-
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify({
             username: username,
             password: password
@@ -25,6 +27,10 @@ async function sendCredentials(username, password) {
         console.log(response)
         overlay.style.display = "none";
 
-        window.location.replace("/");
+        if(response.ok) {
+            messageText.innerHTML = "Ingelogd yippeee"
+        } else {
+            messageText.innerHTML = "Onjuiste gebruikersnaam of wachtwoord"
+        }
     }).catch(() => {messageText.innerHTML = "Onjuiste gebruikersnaam of wachtwoord"})
 }

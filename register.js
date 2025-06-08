@@ -17,7 +17,9 @@ async function sendCredentials(username, email, password) {
 
     fetch("http://localhost:8000/memory/register", {
         method: "post",
-
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify({
             username: username,
             email: email,
