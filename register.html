@@ -4,23 +4,29 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="Style/style.css">
-	<title>Registreren</title>
+	<title>Account maken</title>
 </head>
 <body>
 	<div class="login">
-		
-		<form class= "loginform" action="" method="post">
-			<h2> Registeer hier</h2>
-			<div class="container">
-			<input type="text" placeholder="Meep Nuggets" name="name" required>
-			<input type="email" placeholder="meep@email.com" name="email" required>
-			<input type="password" placeholder="wachtwoord" name="password" required>
-			<button type="submit"><b>Registreren</b></button>
+		<div id="loading-overlay" class="overlay" style="display: none;">
+			<div class="spinner"></div>
+		</div>
 
+		<form class="loginform" id="register-form">
+			<h2>Account maken</h2>
 			<div class="container">
-				<span class="link">Al een account? <a href="/inloggen">Log in</a></span>
+				<input type="text" placeholder="meep" name="username" id="username-input" required>
+				<input type="email" placeholder="meep@email.com" name="email" id="email-input" required>
+				<input type="password" placeholder="wachtwoord" name="password" id="password-input" required>
+				<button type="submit" id="submit-button"><b>Registreren</b></button>
+
+				<div class="container">
+					<span class="link">Al een account? <a href="/login.html">Log in</a></span>
+					<p id="register-message"></p>
+				</div>
 			</div>
 		</form>
 	</div>
 </body>
+<script src="register.js"></script>
 </html>
