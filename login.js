@@ -1,0 +1,1 @@
+const overlay = document.getElementById("loading-overlay");
