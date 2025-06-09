@@ -95,7 +95,6 @@ restartButton.addEventListener("click", () =>{
     restartTimer()
 })
 
-
 //Color change
 const colorInput = document.getElementById("color-input");
 
