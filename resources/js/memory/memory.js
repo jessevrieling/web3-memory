@@ -63,7 +63,6 @@ export function restartTimer(){
     renderCards();
 }
 
-
 export function handleChangeEvent() {
   document.getElementById("loader").style.display = "block";
 
@@ -82,17 +81,18 @@ memoryGrid.addEventListener("click", () => {
 });
 
 //Restart game
-    const restartButton = document.getElementById("restart")
-    restartButton.addEventListener("click", () =>{
-        clearInterval(countdownInterval)
-        remainingTime = totalTime
-        elapsedTime = 0
-        timerStarted = false
+const restartButton = document.getElementById("restart")
 
-        countdownBar.value = totalTime
+restartButton.addEventListener("click", () =>{
+    clearInterval(countdownInterval)
+    remainingTime = totalTime
+    elapsedTime = 0
+    timerStarted = false
 
-        renderCards()
-        restartTimer()
+    countdownBar.value = totalTime
+
+    renderCards()
+    restartTimer()
 })
 
 
@@ -116,16 +116,12 @@ export async function fetchScoreboard() {
     scoreList.innerHTML = '';
 
     scores.forEach((entry, index) => {
-    const ul = document.createElement('ul');
-    ul.textContent = `${index + 1}. ${entry.username} - ${entry.score}`;
-    scoreList.appendChild(ul);
+        const ul = document.createElement('ul');
+        ul.textContent = `${index + 1}. ${entry.username} - ${entry.score}`;
+        scoreList.appendChild(ul);
     });
 
   } catch (error) {
-    console.error('Error fetching scoreboard:', error);
+      console.error('Error fetching scoreboard:', error);
   }
 }
-
-
-
-
