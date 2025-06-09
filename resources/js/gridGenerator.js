@@ -1,6 +1,5 @@
 import fetchImages from "./api/imageFetcher.js";
-import {endGame, restartTimer, handleChangeEvent, fetchScoreboard} from "./index.js";
-// import startTimer from "./index.js";
+import {endGame, restartTimer, handleChangeEvent, fetchScoreboard} from "./memory.js";
 
 let cardMap = {};
 let pairsFound = 0;
