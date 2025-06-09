@@ -1,6 +1,5 @@
-import fetchImages from "./imageFetcher.js";
-import {endGame, restartTimer, handleChangeEvent, fetchScoreboard} from "./index.js";
-// import startTimer from "./index.js";
+import fetchImages from "../api/imageFetcher.js";
+import {endGame, restartTimer, handleChangeEvent, fetchScoreboard} from "./memory.js";
 
 let cardMap = {};
 let pairsFound = 0;
@@ -13,13 +12,9 @@ export default async function renderCards() {
 	const character = document.getElementById("character").value;
 	const gridContainer = document.getElementById("memory-grid")
 	const gridLayout = Math.sqrt(gridSize)
-
-    // const loader = document.getElementById("loader");
-    // loader.style.display = "block";
     const overlay = document.getElementById("loading-overlay");
     overlay.style.display = "flex"; // block input
 
-	
 	let grid = '';
     let uniqueCount = gridSize / 2
     pairCount = uniqueCount
@@ -43,11 +38,6 @@ export default async function renderCards() {
     gridContainer.innerHTML = grid;
     gridContainer.style.display = "grid";
     gridContainer.style.gridTemplateColumns = `repeat(${gridLayout}, 1fr)`;
-
-    // setTimeout(() => {
-    //     loader.style.display = "none";
-    // }, 30);
-
     overlay.style.display = "none";
 
     document.getElementById("character").addEventListener("change", () =>{
@@ -63,6 +53,7 @@ export default async function renderCards() {
         renderCards();
         restartTimer();
     });
+
     fetchScoreboard();
     attachFlipListeners();
 }
@@ -126,10 +117,10 @@ function disableCards(){
     firstCard.removeEventListener('click', flipCard)
     secondCard.removeEventListener('click', flipCard)
 }
+
 function unflipCards(){
     setTimeout(()=>{
         firstCard.classList.remove('flip');
         secondCard.classList.remove('flip');
     }, 1000);
 }
-

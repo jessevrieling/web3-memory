@@ -11,22 +11,24 @@ body {
     background-color: #a1e9d6;
 }
 
-.header{
+.header {
     margin-top: 1%;
     text-align: center;
 }
-#countdown{
+
+
+#countdown {
     color: #355F2E;
     border: #533d3e;
 }
-#memory-grid,
-#memory-grid-back{
+
+#memory-grid, #memory-grid-back {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10px, 1fr)); 
     perspective: 1000px;
 }
 
-.gridcontainer {
+.grid-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +39,8 @@ body {
     transform-style:preserve-3d;
     transition: .5s;
 }
-.card.flip{
+
+.card.flip {
     transform: rotateY(180deg)
 }
 
@@ -51,26 +54,31 @@ body {
     font-size: 2em;
     backface-visibility: hidden;
 }
-.back-face{
+
+.back-face {
     background-color: #A8CD89;
     border: 2px solid #355F2E;
 }
+
 .front-face {
     transform: rotateY(180deg)
 }
+
 .front-face img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
+
 .back-face:hover{
     background-color: #355F2E;
     cursor: pointer;
 }
 
-.scoreboard, .scoreboard h1, .voorkeur, .scores {
+.scoreboard, .scoreboard h1, .preferences, .scores {
     text-align: left;
 }
+
 .legend {
     display: flex;
     flex-direction: column;
@@ -80,7 +88,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    align-items: center;
 }
 
 .start-button {
@@ -92,7 +99,8 @@ body {
     font-family: "DynaPuff", system-ui;
     margin-bottom: 5%;
 }
-select{
+
+select {
     background-color: #F9C0AB;
     font-family: "DynaPuff", system-ui;
     color: #533d3e;
@@ -100,23 +108,24 @@ select{
     float: right;
     margin-left: 1vw;
 }
+
 .start-button:hover {
     background-color: #A8CD89;
 }
 
-.login{
+.login {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     width: 100vw;
-    background-image:url(../Style/bg2.png);
+    background-image:url("../images/bg2.png");
     background-size: cover;
     background-position: center;
     overflow: hidden;
 }
 
-.loginform {
+.login-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -130,18 +139,20 @@ select{
     border-radius: 8px;
 }
 
-.loginform .container {
+.login-form .container {
     display: flex;
     flex-direction: column;
 }
-.loginform input {
+
+.login-form input {
     font-size: 20px;
     padding: 10px;
     margin: 5px 0;
     border: 1px solid;
     border-radius: 4px;
 }
-.loginform button {
+
+.login-form button {
     font-size: 15px;
     background-color: #A8CD89;
     padding: 10px;
@@ -153,17 +164,20 @@ select{
     color: #533d3e;
 
 }
-.loginform button:hover {
+
+.login-form button:hover {
     background-color: #355F2E;
 }
-.loginform .link {
+.login-form .link {
     margin-top: 10px;
     font-size: 20px;
 }
-.loginform a{
+
+.login-form a{
         color:#355F2E
 }
-.loginform a:hover{
+
+.login-form a:hover{
         color:#533d3e
 }
 
@@ -194,32 +208,31 @@ select{
   100% { transform: rotate(360deg); }
 }
 
-
-
-
-
 /* styling for phones */
 @media only screen and (max-width: 600px) {
-    body{
+    body {
         font-size: 1rem;
         margin: 0;
         padding: 0;
         overflow-x: hidden;
     }
-    #memory-grid,
-    #memory-grid-back {
+
+    #memory-grid, #memory-grid-back {
         margin-top: 5vw;
         width: 80vw;
         height: 80vw;
     }
-    #countdown{
-    width: 50%;
+
+    #countdown {
+        width: 50%;
     }
+
     .start-button {
         font-size: 1.5rem;
         padding: 8px 16px;
     }
-    .gridcontainer {
+
+    .grid-container {
         flex-direction: column; 
         align-items: center;
     }
@@ -227,19 +240,21 @@ select{
     .scoreboard {
         text-align: center;
     }
+
     .legend {
-    width: 20vh;
-    gap: 10vh; 
+        width: 20vh;
+        gap: 10vh;
     }
 
-    .loginform{
+    .login-form {
         width: 50vw;
         min-width: 0;
         max-width: 400px;
         margin: auto;
         box-sizing: border-box;
     }
-    .loginform .container {
+
+    .login-form .container {
         max-width: 40vw;
     }
 }
@@ -250,8 +265,7 @@ select{
         font-size: 1rem;
     }
 
-    #memory-grid,
-    #memory-grid-back {
+    #memory-grid, #memory-grid-back {
         width: 50vw;
         height: 50vw;
     }
@@ -261,7 +275,7 @@ select{
         padding: 10px 20px;
     }
 
-    .gridcontainer {
+    .grid-container {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
@@ -273,19 +287,21 @@ select{
         text-align: center;
     }
     
-    .loginform{
+    .login-form {
         width: 100vh;
         min-width: 0;
         max-width: 400px;
         margin: auto;
         box-sizing: border-box;
     }
-    .loginform .container {
+
+    .login-form .container {
         max-width: 60vw;
     }
+
     .legend {
-    width: 20vw;
-    gap: 10vw; 
+        width: 20vw;
+        gap: 10vw;
     }
 }
 
@@ -294,28 +310,33 @@ select{
     body{
         font-size: 0.75em;
     }
-    #memory-grid,
-    #memory-grid-back{
+
+    #memory-grid, #memory-grid-back {
         width: 75vh;
         height: 75vh;
     }
+
     .start-button {
         font-size: 1rem;
         padding: 8px 16px;
     }
-    .gridcontainer {
+
+    .grid-container {
         flex-direction: row; 
         align-items: center; 
     }
+
     .scoreboard {
         margin-left: 5%;
         text-align: center;
     }
+
     .legend {
-    width: 20vh;
-    gap: 10vh; 
+        width: 20vh;
+        gap: 10vh;
     }
+
     #countdown{
-    width: 20%;
+        width: 20%;
     }
 }
