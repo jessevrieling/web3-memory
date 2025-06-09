@@ -1,4 +1,4 @@
-import fetchImages from "./imageFetcher.js";
+import fetchImages from "./api/imageFetcher.js";
 import {endGame, restartTimer, handleChangeEvent, fetchScoreboard} from "./index.js";
 // import startTimer from "./index.js";
 
