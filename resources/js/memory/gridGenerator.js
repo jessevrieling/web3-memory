@@ -1,4 +1,4 @@
-import fetchImages from "./api/imageFetcher.js";
+import fetchImages from "../api/imageFetcher.js";
 import {endGame, restartTimer, handleChangeEvent, fetchScoreboard} from "./memory.js";
 
 let cardMap = {};
