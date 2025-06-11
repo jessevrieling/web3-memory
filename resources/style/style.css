@@ -90,7 +90,7 @@ body {
     justify-content: space-between;
 }
 
-.start-button {
+.button {
     background-color: #F9C0AB;
     border: 2px solid #533d3e;
     color: #533d3e;
@@ -112,8 +112,14 @@ select {
 .start-button:hover {
     background-color: #A8CD89;
 }
+#color-input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+}
 
-.login {
+
+.login, .preferences {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,6 +157,15 @@ select {
     border: 1px solid;
     border-radius: 4px;
 }
+
+input[type="color"],
+input[type="text"],
+input[type="email"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
 
 .login-form button {
     font-size: 15px;
