@@ -1,5 +1,6 @@
 import fetchImages from "../api/imageFetcher.js";
 import {endGame, restartTimer, handleChangeEvent, fetchScoreboard} from "./memory.js";
+import {fetchWithToken} from "../api/api.js";
 
 let cardMap = {};
 let pairsFound = 0;
@@ -54,8 +55,24 @@ export default async function renderCards() {
         restartTimer();
     });
 
-    fetchScoreboard();
+    await getColor();
+    await fetchScoreboard();
     attachFlipListeners();
+}
+async function getColor() {
+    const response = await fetchWithToken("http://localhost:8000/player/preferences", {
+        method: "get",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    const data = await response.json();
+    const backFaces = document.querySelectorAll(".back-face");
+    const color = data.color_closed;
+
+    backFaces.forEach(el => {
+        el.style.backgroundColor = color === undefined ? '#A8CD89': color;
+    });
 }
 
 function shuffleArray(array) {
