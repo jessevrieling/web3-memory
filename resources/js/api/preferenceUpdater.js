@@ -19,8 +19,8 @@ document.getElementById("preferences-form").addEventListener("submit", async (e)
         },
         body: JSON.stringify({
             api: favouriteImages,
-            color_found: color,
-            color_closed: "#0ff"
+            color_closed: color,
+            color_found: "#0ff"
         })
     }).then(preferencesResponse => {
         fetchWithToken("http://localhost:8000/player/email", {
