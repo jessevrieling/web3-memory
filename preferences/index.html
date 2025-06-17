@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <title>Voorkeuren</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+    <link href="../resources/style/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="loading-overlay" class="overlay" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+    <div class="preferences">  
+        <form class="form login-form" id="preferences-form">
+            <div class="container">
+                <h1>Voorkeuren</h1>
+                <label for="color-input">Kleur:</label>
+                <input type="color" id="color-input">
+                <br>
+                <label for="favourite-api-input">Favoriete plaatjes:</label>
+                <input type="text" id="favourite-api-input">
+                <br>
+                <label for="email-input">E-mail adres</label>
+                <input type="email" id="email-input">
+                <br>
+                <button class="button " type="submit">Opslaan</button>
+            </div>
+            <p id="error-text"></p>
+        </form>
+    </div>
+</body>
+<script type="module" src="../resources/js/api/preferenceUpdater.js"></script>
+</html>

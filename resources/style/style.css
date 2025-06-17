@@ -90,7 +90,7 @@ body {
     justify-content: space-between;
 }
 
-.start-button {
+.button {
     background-color: #F9C0AB;
     border: 2px solid #533d3e;
     color: #533d3e;
@@ -112,8 +112,14 @@ select {
 .start-button:hover {
     background-color: #A8CD89;
 }
+#color-input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+}
 
-.login {
+
+.login, .preferences, .home {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,7 +131,7 @@ select {
     overflow: hidden;
 }
 
-.login-form {
+.login-form, .home {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -139,7 +145,7 @@ select {
     border-radius: 8px;
 }
 
-.login-form .container {
+.login-form .container, .container {
     display: flex;
     flex-direction: column;
 }
@@ -152,7 +158,16 @@ select {
     border-radius: 4px;
 }
 
-.login-form button {
+input[type="color"],
+input[type="text"],
+input[type="email"] {
+  display: block;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+
+.login-form button, .home button {
     font-size: 15px;
     background-color: #A8CD89;
     padding: 10px;
@@ -165,8 +180,11 @@ select {
 
 }
 
-.login-form button:hover {
+.login-form button:hover, .home button:hover {
     background-color: #355F2E;
+}
+.home button:hover {
+    background-color: #F9C0AB;
 }
 .login-form .link {
     margin-top: 10px;

@@ -32,7 +32,7 @@ async function sendCredentials(username, password) {
                 localStorage.setItem("MEMORY_TOKEN", data.token)
             });
 
-            window.location.replace("/");
+            window.location.replace("/memory");
         } else {
             messageText.innerHTML = "Onjuiste gebruikersnaam of wachtwoord"
         }
