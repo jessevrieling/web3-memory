@@ -95,17 +95,6 @@ restartButton.addEventListener("click", () =>{
     restartTimer()
 })
 
-//Color change
-const colorInput = document.getElementById("color-input");
-
-colorInput.onchange = () => {
-    const backFaces = document.querySelectorAll(".back-face");
-
-    backFaces.forEach(el => {
-        el.style.backgroundColor = colorInput.value;
-    });
-};
-
 export async function fetchScoreboard() {
   try {
     const response = await fetch('http://localhost:8000/memory/top-scores');
