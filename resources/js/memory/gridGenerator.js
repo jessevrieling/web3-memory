@@ -1,5 +1,6 @@
 import fetchImages from "../api/imageFetcher.js";
 import {endGame, restartTimer, handleChangeEvent, fetchScoreboard} from "./memory.js";
+import {fetchWithToken} from "../api/api.js";
 
 let cardMap = {};
 let pairsFound = 0;
@@ -54,7 +55,8 @@ export default async function renderCards() {
         restartTimer();
     });
 
-    fetchScoreboard();
+    await getColor();
+    await fetchScoreboard();
     attachFlipListeners();
 }
 
