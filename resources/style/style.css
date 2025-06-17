@@ -129,6 +129,7 @@ select {
     background-size: cover;
     background-position: center;
     overflow: hidden;
+
 }
 
 .login-form, .home {
@@ -145,14 +146,20 @@ select {
     border-radius: 8px;
 }
 
-.login-form .container, .container {
+.login-form .container, .home-container {
     display: flex;
     flex-direction: column;
 }
 
+
+.container input, .container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .login-form input {
     font-size: 20px;
-    padding: 10px;
+    padding: 2px;
     margin: 5px 0;
     border: 1px solid;
     border-radius: 4px;
@@ -265,7 +272,7 @@ input[type="email"] {
     }
 
     .login-form {
-        width: 50vw;
+        width: auto;
         min-width: 0;
         max-width: 400px;
         margin: auto;
@@ -274,7 +281,9 @@ input[type="email"] {
 
     .login-form .container {
         max-width: 40vw;
+        gap: 1rem;
     }
+    
 }
 
 /* styling for tablets */

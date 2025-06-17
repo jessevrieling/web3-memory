@@ -15,13 +15,19 @@
     </div>
     <div class="preferences">  
         <form class="form login-form" id="preferences-form">
+             <h1>Voorkeuren</h1>
             <div class="container">
-                <h1>Voorkeuren</h1>
                 <label for="color-input">Kleur:</label>
                 <input type="color" id="color-input">
                 <br>
-                <label for="favourite-api-input">Favoriete plaatjes:</label>
-                <input type="text" id="favourite-api-input">
+                <label for="favourite-api-input">Favoriete thema:</label>
+                <select id="theme" name="Thema">
+                    <option value="memes">Memes</option>
+                    <option value="cats">Katten</option>
+                    <option value="dogs">Honden</option>
+                    <option value="random">Random</option>
+                </select>
+                
                 <br>
                 <label for="email-input">E-mail adres</label>
                 <input type="email" id="email-input">
