@@ -113,3 +113,11 @@ export async function fetchScoreboard() {
       console.error('Error fetching scoreboard:', error);
   }
 }
+
+//redirect home button
+const redirectButton = document.getElementById("home")
+
+redirectButton.addEventListener("click", () =>{
+    window.location.href = "/";
+})
+

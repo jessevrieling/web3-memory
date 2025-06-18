@@ -109,9 +109,10 @@ select {
     margin-left: 1vw;
 }
 
-.start-button:hover {
+.start-button:hover, .preferences-button:hover, .login-button:hover, .home-button:hover {
     background-color: #A8CD89;
 }
+
 #color-input {
   display: block;
   width: 100%;
@@ -132,7 +133,7 @@ select {
 
 }
 
-.login-form, .home {
+.login-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -252,7 +253,7 @@ input[type="email"] {
         width: 50%;
     }
 
-    .start-button {
+    .start-button, .home-button {
         font-size: 1.5rem;
         padding: 8px 16px;
     }
@@ -297,7 +298,7 @@ input[type="email"] {
         height: 50vw;
     }
 
-    .start-button {
+    .start-button, .home-button {
         font-size: 1.5rem;
         padding: 10px 20px;
     }
@@ -343,7 +344,7 @@ input[type="email"] {
         height: 75vh;
     }
 
-    .start-button {
+    .start-button, .home-button {
         font-size: 1rem;
         padding: 8px 16px;
     }
