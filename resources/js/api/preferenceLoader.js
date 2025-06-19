@@ -1,12 +1,13 @@
-import {fetchWithToken} from "./api.js"
+import {fetchWithToken} from "./api";
 
 export async function getFavouriteImages() {
-    await fetchWithToken("http://localhost:8000/player/preferences", {
+    const response = await fetchWithToken("http://localhost:8000/player/preferences", {
         method: "get",
         headers: {
             "Content-Type": "application/json"
         }
-    }).then((response) => response.json()).then((data) => {
-        return data.preffered_api
-    })
+    });
+
+    const data = await response.json();
+    return data.preferred_api;
 }
