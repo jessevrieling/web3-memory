@@ -1,6 +1,10 @@
 import renderCards from "./gridGenerator.js"
 import {getFavouriteImages} from "../api/preferenceLoader.js";
 
+if(localStorage.getItem("MEMORY_TOKEN") === null) {
+    window.location.replace("/login");
+}
+
 document.getElementById("theme").value = await getFavouriteImages();
 renderCards()
 
