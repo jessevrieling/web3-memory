@@ -43,3 +43,10 @@ document.getElementById("preferences-form").addEventListener("submit", async (e)
         overlay.style.display = "none";
     })
 })
+
+//redirect home button
+const redirectButton = document.getElementById("home")
+
+redirectButton.addEventListener("click", () =>{
+    window.location.href = "/";
+})
