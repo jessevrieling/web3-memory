@@ -1,4 +1,4 @@
-import {fetchWithToken} from "./api";
+import {fetchWithToken} from "./api.js";
 
 export async function getFavouriteImages() {
     const response = await fetchWithToken("http://localhost:8000/player/preferences", {
