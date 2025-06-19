@@ -1,7 +1,7 @@
 import renderCards from "./gridGenerator.js"
 import {getFavouriteImages} from "../api/preferenceLoader.js";
 
-document.getElementById("theme").value = getFavouriteImages();
+document.getElementById("theme").value = await getFavouriteImages();
 renderCards()
 
 // Timer for the game
