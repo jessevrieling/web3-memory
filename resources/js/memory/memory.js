@@ -120,6 +120,32 @@ export async function fetchScoreboard() {
   }
 }
 
+
+export async function fetchAverageTime(){
+    try{
+        const response = await fetch('http://localhost:8000/memory/scores');
+        const scores = await response.json();
+        console.log(scores)
+        const totalScores = scores.map(entry => parseFloat(entry.score));
+        let length = totalScores.length
+        let sum = 0;
+
+        totalScores.forEach( num => {
+        sum += num;
+        })
+
+        let averageTime = Math.round(sum/length);
+        document.getElementById('avgscores').innerHTML = averageTime;
+       
+    }  catch (error) {
+      console.error('Error fetching scoreboard:', error);
+  }
+}
+
+
+
+
+
 //redirect home button
 const redirectButton = document.getElementById("home")
 
